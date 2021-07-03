@@ -13,5 +13,8 @@ pipeline{
                 }
             }
         }
+        stage("Deploy in staging environment"){
+            build job: 'tomcat-deploy-stage'
+        }
     }
 }
