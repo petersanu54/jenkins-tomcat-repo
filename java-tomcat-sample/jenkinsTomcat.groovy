@@ -26,7 +26,8 @@ job('sun-Jenkins-tomcat-deploy-to-stage') {
         timestamps()
     }
     steps{
-        copyArtifcats('sun-Jenkins-tomcat-package-job-createdby-DSL'){
+        copyArtifacts{
+            projectName('sun-Jenkins-tomcat-package-job-createdby-DSL')
             includePattern('**/*.war')
             buildSelector{
                 latestSuccessful(true)
