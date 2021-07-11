@@ -29,7 +29,7 @@ job('sun-Jenkins-tomcat-deploy-to-stage') {
         copyArtifacts{
             projectName('sun-Jenkins-tomcat-package-job-createdby-DSL')
             filter('**/*.war')
-            buildSelector{
+            selector{
                 latestSuccessful(true)
             }
         }
