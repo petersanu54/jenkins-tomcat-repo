@@ -11,6 +11,7 @@ job('sun-Jenkins-tomcat-package-job-createdby-DSL'){
     }
     publishers{
         archiveArtifacts('**/*.war')
+        downstream('sun-Jenkins-tomcat-deploy-to-stage')
     }
 }
 
