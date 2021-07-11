@@ -1,4 +1,4 @@
-job('Jenkins-tomcat-package-job-createdby-DSL'){
+job('sun-Jenkins-tomcat-package-job-createdby-DSL'){
     logRotator(5,5)
     scm{
         git('https://github.com/petersanu54/jenkins-tomcat-repo.git','master')
