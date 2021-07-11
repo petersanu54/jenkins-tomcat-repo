@@ -4,7 +4,7 @@ job('sun-Jenkins-tomcat-package-job-createdby-DSL'){
         git('https://github.com/petersanu54/jenkins-tomcat-repo.git','master')
     }
     triggers{
-        scm(* * * * *)
+        scm('* * * * *')
     }
     steps{
         mvn('clean package', 'java-tomcat-sample/pom.xml')
