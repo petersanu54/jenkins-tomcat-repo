@@ -26,7 +26,7 @@ job('sun-Jenkins-tomcat-deploy-to-stage') {
         timestamps()
     }
     steps{
-        copyArtifcats('upstream'){
+        copyArtifcats('sun-Jenkins-tomcat-package-job-createdby-DSL'){
             includePattern('**/*.war')
             buildSelector{
                 latestSuccessful(true)
