@@ -28,7 +28,7 @@ job('sun-Jenkins-tomcat-deploy-to-stage') {
     steps{
         copyArtifacts{
             projectName('sun-Jenkins-tomcat-package-job-createdby-DSL')
-            includePatterns('*.war')
+            filter('**/*.war')
             buildSelector{
                 latestSuccessful(true)
             }
