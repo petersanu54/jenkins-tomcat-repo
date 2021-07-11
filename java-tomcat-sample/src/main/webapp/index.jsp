@@ -1,5 +1,7 @@
 <html>
 <body>
-<h3>Armin Van burren</h3>
+<h2>Armin Van burren</h2>
+<h4>King of Trance</h4>
+
 </body>
 </html>
