@@ -13,3 +13,10 @@ job('sun-Jenkins-tomcat-package-job-createdby-DSL'){
         archiveArtifacts('**/*.war')
     }
 }
+
+job('sun-Jenkins-tomcat-deploy-to-stage'){
+    logRotator(5,5)
+    triggers{
+        scm('* * * * *')
+    }
+}
