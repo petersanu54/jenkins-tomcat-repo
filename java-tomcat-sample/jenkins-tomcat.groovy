@@ -7,7 +7,7 @@ job('sun-Jenkins-tomcat-package-job-createdby-DSL'){
         scm('* * * * *')
     }
     steps{
-        mvn('clean package', 'java-tomcat-sample/pom.xml')
+        maven('clean package', 'java-tomcat-sample/pom.xml')
     }
     publishers{
         archiveArtifacts('**/*.war')
