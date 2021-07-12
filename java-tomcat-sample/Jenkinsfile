@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Build Application'){
             steps{
-                sh 'mvn -f jenkins-tomcat-repo/pom.xml clean package'
+                bat 'mvn -f jenkins-tomcat-repo/pom.xml clean package'
             }
             post{
                 success{
@@ -15,7 +15,7 @@ pipeline{
 
         stage('Deploy to Staging env'){
             steps{
-                build job: 'tomcat-deploy-stage'
+                build job: 'sat-deploy-staging'
             }
         }
     }
