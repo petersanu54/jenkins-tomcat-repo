@@ -16,6 +16,7 @@ job('sun-Jenkins-tomcat-package-job-createdby-DSL'){
     publishers{
         archiveArtifacts('**/*.war')
         downstream('sun-Jenkins-tomcat-deploy-to-stage')
+        mavenDeploymentLinker('**/*.war')
     }
 }
 
@@ -23,6 +24,22 @@ job('sun-Jenkins-tomcat-deploy-to-stage') {
     description('This job will copy the artificats from upstream and deploy in staging environment.')
     logRotator(5,5)
     wrappers {
+        timestamps()
+    }
+    steps{
+        copyArtifacts{
+            projectName('sun-Jenkins-tomcat-package-job-createdby-DSL')
+            filter('**/*.war')
+        }
+    }
+    publishers{
+        downstream('sun-Jenkins-tomcat-deploy-to-production')
+    }
+}
+
+job('sun-Jenkins-tomcat-deploy-to-production'){
+    logRotator(5,5)
+    wrappers{
         timestamps()
     }
     steps{
