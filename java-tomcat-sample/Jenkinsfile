@@ -15,7 +15,7 @@ pipeline{
 
         stage('Deploy to Staging env'){
             steps{
-                build job: 'sat-deploy-staging'
+                build job: 'mon-Jenkins-tomcat-deploy-to-stage'
             }
         }
     }
