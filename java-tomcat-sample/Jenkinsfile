@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    stages{
+        stage('Build Application'){
+            steps{
+                sh 'mvn -f jenkins-tomcat-repo/pom.xml clean package'
+            }
+            post{
+                success{
+                    echo "Now archiving the artifacts..."
+                    archiveArtifacts artifacts: '**/*.war'
+                }
+            }
+        }
+
+        stage('Deploy to Staging env'){
+            steps{
+                build job: 'tomcat-deploy-stage'
+            }
+        }
+    }
+}
